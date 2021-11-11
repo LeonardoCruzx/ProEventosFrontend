@@ -1,4 +1,43 @@
-<p *ngFor="let e of eventos">
-  {{e.eventoId}}
-  {{e.local}}
-</p>
+<h2>Eventos</h2>
+<hr>
+
+<form action="" class="form-inline">
+  <div class="form-group mb2">
+    <input type="text" class="form-control mr-2" placeholder="buscar">
+    <button class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<table class="table table-stripped">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Image</th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd Pessoas</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let e of eventos">
+      <td>{{e.eventoId}}</td>
+      <td>{{e.imagemURL}}</td>
+      <td>{{e.tema}}</td>
+      <td>{{e.local}}</td>
+      <td>{{e.dataEvento}}</td>
+      <td>{{e.qtdPessoas}}</td>
+      <td>{{e.lote}}</td>
+      <td></td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhum evento encontrardo</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
